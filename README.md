@@ -10,5 +10,4 @@ Important notes:
 
 Requiremets:
 - You must have at least windows 8.1 or above to get this work
-
-
+- install the node.js and all the required modules such as: Puppeteer, chalk, readline-sync, env-file, sanitize-filename
