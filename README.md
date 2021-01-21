@@ -11,4 +11,4 @@ Requiremets:
 - You must have at least windows 8.1 or above to get this work (node.js and Puppeteer requirments)
 - install the node.js and all the required modules Puppeteer, chalk, readline-sync, env-file, etc... or modfiy the code as you need
 
-A windows installer have been made for the app if you are looking to use it without basic programing background.
+A <a href="https://bit.ly/pdfformstaker3">windows installer</a> have been made for the app if you are looking to use it without basic programing background. (USE UNDER YOUR OWN RESPONSIBILITY)
