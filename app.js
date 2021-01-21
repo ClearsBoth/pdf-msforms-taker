@@ -9,7 +9,7 @@ const envFile = require('envfile');
 const sanitize = require('sanitize-filename');
 
 // Welcoming
-console.log(chalk.yellow('Running Node.js with puppeteer. Application PDFTaker ') + chalk.yellowBright('v1.3.3'));
+console.log(chalk.yellow('Running Node.js with puppeteer. Application PDFTaker ') + chalk.yellowBright('v1.3.5'));
 console.log(chalk.yellow('Developed By: [ClearBoth - Abdulla Ashoor]'));
 
 let username = '';
@@ -135,10 +135,7 @@ let responses = 0;
 let desktop = os.homedir() + "\\Desktop";
 
 (async () => {
-    const browser = await puppeteer.launch({
-        headless: true,
-        executablePath: './node_modules/puppeteer/.local-chromium/win64-818858/chrome-win/chrome.exe'
-    });
+    const browser = await puppeteer.launch({headless: true});
     const [page] = await browser.pages();
 
     await page.goto(formStatusURL, {waitUntil: 'networkidle0', timeout: 0})
@@ -226,9 +223,18 @@ let desktop = os.homedir() + "\\Desktop";
             }
         }
 
-        respondent = await page.$eval('span.select-placeholder-text span span', e => e.innerText);
-        name = await page.evaluate(() => document.querySelectorAll("div.gradingByStudentAnswerContainer.gradingAnswerContainer span.gradingPlainTextAnswer span")[0].innerHTML);
-        studentID = await page.evaluate(() => document.querySelectorAll("div.gradingByStudentAnswerContainer.gradingAnswerContainer span.gradingPlainTextAnswer span")[1].innerHTML);
+        try {
+            respondent = await page.$eval('span.select-placeholder-text span span', e => e.innerText);
+            if(userOption === '3' || userOption === '4' || userOption === '5')
+                name = await page.evaluate(() => document.querySelectorAll("div.gradingByStudentAnswerContainer.gradingAnswerContainer span.gradingPlainTextAnswer span")[0].innerHTML);
+            if(userOption === '4' || userOption === '5')
+                studentID = await page.evaluate(() => document.querySelectorAll("div.gradingByStudentAnswerContainer.gradingAnswerContainer span.gradingPlainTextAnswer span")[1].innerHTML);
+        } catch (error) {
+            if(userOption === '3' || userOption === '4' || userOption === '5')
+                console.error(chalk.red.bold("cannot read student name as of first field."));
+            if(userOption === '4' || userOption === '5')
+                console.error(chalk.red.bold("cannot read student ID as of second field."));
+        }
 
         //Set file name as requested choice
         switch (userOption) {
