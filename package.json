@@ -1,5 +1,5 @@
 {
-  "name": "pdftaker",
+  "name": "pdf-msforms-taker",
   "version": "1.0.0",
   "dependencies": {
     "envfile": "^6.14.0",
