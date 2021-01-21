@@ -1,13 +1,14 @@
 # pdf-msforms-taker
-downloading MS Forms responses as PDF using Puppeteer
 
-Important notes:
-- This app is intended to use by users who want to download PDF files from Microsoft Forms.
-- The app will ask for your office 365 credentials and will save it localy for you.
-- You always can delete the app and all it's data easily with windows uninstaller.
-- For better view of arabic chars, you can run it in Windows Terminal instead of cmd.
-- if you have any questions/concerns you can email us at: abdulla.ashoor.is@gmail.com
+The file app.js will download Microsoft Forms responses as PDF using <a href="https://github.com/puppeteer/puppeteer">Puppeteer</a> with node.js.
+
+You can customize it as you like:
+- The code will required few modules such as chalk, readline-sync, env-file, sanitize-filename
+- It's customized for using by Teachers who looks to download quiz responses for their students.
+- The app will ask for your office 365 credentials and will save it localy for you in env file.
 
 Requiremets:
-- You must have at least windows 8.1 or above to get this work
-- install the node.js and all the required modules such as: Puppeteer, chalk, readline-sync, env-file, sanitize-filename
+- You must have at least windows 8.1 or above to get this work (node.js and Puppeteer requirments)
+- install the node.js and all the required modules Puppeteer, chalk, readline-sync, env-file, etc... or modfiy the code as you need
+
+A windows installer have been made for the app if you are looking to use it without basic programing background.
