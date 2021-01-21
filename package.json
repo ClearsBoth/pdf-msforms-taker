@@ -1,0 +1,14 @@
+{
+  "name": "pdftaker",
+  "version": "1.0.0",
+  "dependencies": {
+    "envfile": "^6.14.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.5.0",
+    "sanitize-filename": "^1.6.3"
+  }
+}
